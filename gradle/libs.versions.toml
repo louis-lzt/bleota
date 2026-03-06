@@ -1,0 +1,32 @@
+[versions]
+agp = "8.7.2"
+kotlin = "2.0.0" # 或者建议升级到 2.0.21 获取更好的 Compose 性能
+coreKtx = "1.13.1" # 1.17.0 不存在/超前，1.13.1 或 1.15.0 是目前的稳定主流
+junit = "4.13.2" # 保持不变
+junitVersion = "1.2.1" # AndroidX ext-junit 推荐稳定版 (1.3.0 偏高)
+espressoCore = "3.6.1" # 推荐稳定版 (3.7.0 目前还处于 alpha/beta 阶段)
+lifecycleRuntimeKtx = "2.8.6" # 2.10.0 过于超前，2.8.6 或 2.8.7 是最稳定的版本
+activityCompose = "1.9.3" # 1.12.2 不存在，当前稳定版是 1.9.2/1.9.3
+composeBom = "2024.09.02" # 推荐使用 2024.09 月份起的 BOM，以更好地搭配 Kotlin 2.0+
+
+[libraries]
+androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
+junit = { group = "junit", name = "junit", version.ref = "junit" }
+androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
+androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
+androidx-lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycleRuntimeKtx" }
+androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activityCompose" }
+androidx-compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "composeBom" }
+androidx-ui = { group = "androidx.compose.ui", name = "ui" }
+androidx-ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics" }
+androidx-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
+androidx-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
+androidx-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
+androidx-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
+androidx-material3 = { group = "androidx.compose.material3", name = "material3" }
+
+[plugins]
+android-application = { id = "com.android.application", version.ref = "agp" }
+kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+
