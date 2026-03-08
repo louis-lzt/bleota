@@ -5,11 +5,11 @@ plugins {
 }
 
 android {
-    namespace = "com.tcl.bleota"
+    namespace = "com.louis.bleota"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.tcl.bleota"
+        applicationId = "com.louis.bleota"
         minSdk = 24
         targetSdk = 34
         versionCode = 1

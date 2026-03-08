@@ -1,6 +1,5 @@
-package com.tcl.bleota.ui.theme
+package com.louis.bleota.ui.theme
 
-import android.app.Activity
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme

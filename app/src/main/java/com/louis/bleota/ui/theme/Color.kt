@@ -1,4 +1,4 @@
-package com.tcl.bleota.ui.theme
+package com.louis.bleota.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

@@ -1,4 +1,4 @@
-package com.tcl.bleota.ota
+package com.louis.bleota.ota
 
 import android.bluetooth.BluetoothGatt
 import android.bluetooth.BluetoothGattCallback
@@ -9,7 +9,6 @@ import android.bluetooth.BluetoothProfile
  * @dec :
  *
  * @author : Louix
- * @email : zhaotian.liu@tcl.com
  * @time : 2026/3/6 19:49
  */
 class MyGattCallback(private val otaService: OtaBleServiceOptimized) : BluetoothGattCallback() {

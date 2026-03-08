@@ -1,4 +1,4 @@
-package com.tcl.bleota.ota
+package com.louis.bleota.ota
 
 import android.Manifest
 import android.annotation.SuppressLint
