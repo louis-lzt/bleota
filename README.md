@@ -81,49 +81,29 @@ class OtaActivity : AppCompatActivity() {
 }
 ```
 
-### 4. 架构设计
-┌─────────────────┐
-│    UI 层        │
-│  (Activity)     │
-└────────┬────────┘
-│
-┌────────▼────────┐
-│   ViewModel     │
-│  (OtaViewModel) │
-└────────┬────────┘
-│
-┌────────▼────────┐
-│    服务层       │
-│(OtaBleService)  │
-└────────┬────────┘
-│
-┌────────▼────────┐
-│  GATT 回调      │
-│(MyGattCallback) │
-└─────────────────┘
-### 5. 核心组件
+## 🔧 核心组件
 
-#### OtaBleServiceOptimized
+### OtaBleServiceOptimized
 OTA 服务的核心，负责：
 - BLE 连接管理
 - 数据包分片和传输
 - 流控和重试逻辑
 - 进度跟踪和状态管理
 
-#### OtaViewModel
+### OtaViewModel
 MVVM ViewModel 提供：
 - 生命周期感知的状态管理
 - 通过 StateFlow 暴露 UI 状态
 - 连接和 OTA 操作 API
 
-#### MyGattCallback
+### MyGattCallback
 BluetoothGattCallback 实现，处理：
 - 连接状态变化
 - 服务发现
 - 特征值写入确认
 - MTU 协商
 
-### 6.状态流转
+## 📊 状态流转
 
 ```kotlin
 sealed class OtaState {
@@ -143,9 +123,9 @@ sealed class OtaState {
     ) : OtaState()
 }
 ```
-### 7.配置说明
+## ⚙️ 配置说明
 
-#### UUID 配置
+### UUID 配置
 在 `OtaBleServiceOptimized` 中更新 UUID 以匹配你的设备：
 
 ```kotlin
@@ -155,7 +135,7 @@ companion object {
     private val OTA_WRITE_CHAR_UUID = UUID.fromString("your-characteristic-uuid")
 }
 ```
-#### 调优参数
+### 调优参数
 ```kotlin
 // 写入间隔（毫秒）
 private const val DEFAULT_WRITE_INTERVAL_MS = 15L    // 默认间隔
@@ -168,7 +148,7 @@ private const val WRITE_TIMEOUT_MS = 3000L           // 写入超时
 // MTU 设置
 private const val DEFAULT_MTU = 23                   // 默认 MTU
 ```
-### 8.错误处理
+## 🛡️ 错误处理
 服务提供全面的错误处理：
 
 - **连接失败**：自动重试，采用指数退避策略
@@ -176,7 +156,7 @@ private const val DEFAULT_MTU = 23                   // 默认 MTU
 - **权限错误**：清晰的权限缺失错误提示
 - **校验失败**：固件完整性验证失败处理
 
-### 9.测试使用
+## 🧪测试使用
 
 运行 demo activity 来测试 OTA 功能：
 
@@ -193,7 +173,14 @@ private const val DEFAULT_MTU = 23                   // 默认 MTU
 adb logcat -s OtaBleService:V MyGattCallback:V OtaActivity:V
 ```
 
-### 10.贡献指南
+## 📈 性能优化
+
+- **自适应 MTU**：自动协商最大 MTU 以加快传输速度
+- **动态流控**：根据设备能力调整写入速度
+- **内存高效**：流式架构防止内存膨胀
+- **并发安全**：使用协程同步确保线程安全
+
+## 🤝贡献指南
 
 欢迎贡献代码！请随时提交 Pull Request。
 
@@ -203,11 +190,17 @@ adb logcat -s OtaBleService:V MyGattCallback:V OtaActivity:V
 4. 推送到分支（`git push origin feature/AmazingFeature`）
 5. 开启一个 Pull Request
 
-### 11.开源协议
+## 📄 开源协议
 
 本项目采用 MIT 协议 - 查看 [LICENSE](LICENSE) 文件了解详情。
 
-### 12.联系方式
+## 🙏 致谢
+
+- 基于 [Kotlin Coroutines](https://kotlinlang.org/docs/coroutines-overview.html) 构建
+- 受 Nordic Semiconductor DFU 库启发
+- 感谢 Android BLE 社区
+
+## 📞联系方式
 
 - 作者：刘照田
 - 邮箱：[1345952680@qq.com]
