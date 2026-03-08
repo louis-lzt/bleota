@@ -205,3 +205,5 @@ adb logcat -s OtaBleService:V MyGattCallback:V OtaActivity:V
 - 作者：刘照田
 - 邮箱：[1345952680@qq.com]
 - GitHub：[@louis-lzt](https://github.com/louis-lzt)
+
+**注意：** 在生产环境使用前，请记得将 UUID 值替换为你实际设备的服务和特征 UUID。
